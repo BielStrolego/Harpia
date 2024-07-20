@@ -115,6 +115,10 @@ h2{
         font-size: calc(.7rem + .3vw);
     }
 
+    .mensagem{
+        margin: 1% 0 0 0;
+    }
+
     .mensagem-para{
         display:none;
     }
