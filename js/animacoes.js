@@ -1,4 +1,8 @@
+function toggleNavbar() {
 
+
+
+}
 
 // Função de rolagem suave para um ID específico
 function jumpToId(id) {
@@ -35,15 +39,36 @@ function atualizarClasses(botaoAtivo) {
 }
 
 function irParaInicio() {
+  var navbarToggler = document.getElementById('navbar-toggler');
+  var navbarCollapse = document.getElementById('navbarNavAltMarkup');
+
   inicioID();
+
+  if (navbarCollapse.classList.contains('show')) {
+    navbarToggler.click();
+  }
 }
 
 function irParaQuemSomos() {
+  var navbarToggler = document.getElementById('navbar-toggler');
+  var navbarCollapse = document.getElementById('navbarNavAltMarkup');
+
   quemSomosID();
+
+  if (navbarCollapse.classList.contains('show')) {
+    navbarToggler.click();
+  }
 }
 
 function irParaFaleConosco() {
-    faleConoscoID();
+  var navbarToggler = document.getElementById('navbar-toggler');
+  var navbarCollapse = document.getElementById('navbarNavAltMarkup');  
+
+  faleConoscoID();
+
+  if (navbarCollapse.classList.contains('show')) {
+    navbarToggler.click();
+  }
 }
 
 

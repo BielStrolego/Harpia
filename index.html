@@ -7,13 +7,14 @@
     <title>Harpia do Brasil</title>
 </head>
 <body>
-    <header class="d-flex bg-white align-items-end justify-content-center justify-content-md-between px-2 border-bottom border-5 border-success fixed-top">
+    <header class="bg-white fixed-top border-bottom border-5 border-success nav-desk">
+      <nav class="d-flex align-items-end justify-content-center justify-content-md-between px-2 ">
         <div class="col-md-3 mb-2 mb-md-0">
-          <div class="d-inline-flex link-body-emphasis text-decoration-none">
+          <div class="d-inline-flex">
             <svg class="bi pt-2" width="365" height="100" role="img"><use xlink:href="#logo"></use></svg>
           </div>
         </div>
-  
+
         <ul class="nav col-6 col-md-auto mb-2 justify-content-center mb-md-0">
             <li class="nav-item mx-1">
                 <a type="button" class="btn btn-success rounded-top rounded-0 border-bottom-0" id="btnMenuInicio" onclick="irParaInicio()"><b>Inicio</b></a>
@@ -30,7 +31,31 @@
             <div><b class="text-success">Tel.: (21) 3833-8188</b></div>
             <div><b class="text-success">E-mail: harpiadobrasil@gmail.com</b></div>
         </div>
+      </nav>
+
+    </header>  
+
+    <header class="bg-white fixed-top border-bottom border-5 border-success nav-mobile">
+      <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <div class="d-inline-flex">
+            <svg class="bi ps-4" width="365" height="100" role="img"><use xlink:href="#logo"></use></svg>
+          </div>
+          <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <a type="button" class="btn btn-outline-success rounded-2 d-block my-2" onclick="irParaInicio()"><b>Inicio</b></a>
+              <a type="button" class="btn btn-outline-success rounded-2 d-block my-2" onclick="irParaQuemSomos()"><b>Quem Somos</b></a>
+              <a type="button" class="btn btn-outline-success rounded-2 d-block my-2" onclick="irParaFaleConosco()"><b>Fale Conosco</b></a>
+            </div>
+          </div>
+        </div>
+
+      </nav>
     </header>
+
+
     <main class="bg-success-subtle">
         <section id="inicio">
             <div class="container">
@@ -42,15 +67,57 @@
                         <span id="cursor">|</span>
                     </h2>
                 </div>
+
+                <div class="row g-3 mt-5 px-2">
+                  <div class="col-4 mt-5">
+                    <div class="card bg-transparent border-2 border-success">
+                      <div class="card-body text-center">
+                        <svg class="bi bi-fill"><use xlink:href="#entrega"></use></svg>
+                        <h5 class="card-title text-success bi-text">Rápida Entrega</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4 mt-5">
+                    <div class="card bg-transparent border-2 border-success">
+                      <div class="card-body text-center">
+                        <svg class="bi bi-fill"><use xlink:href="#qualidade"></use></svg>
+                        <h5 class="card-title text-success bi-text">Qualidade</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4 mt-5">
+                    <div class="card bg-transparent border-2 border-success">
+                      <div class="card-body text-center">
+                        <svg class="bi bi-fill"><use xlink:href="#economia"></use></svg>
+                        <h5 class="card-title text-success bi-text">Econômia</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
             
         </section>
         <section id="quemsomos">
+          <div class="container d-block px-5">
+            <div class="card mb-3 bg-transparent border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="assets/img/grupo/grupo-de-trabalhadores-700-2040065.jpg" class="img-fluid rounded-5 border border-3 border-success" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title text-success">Quem somos</h5>
+                    <p class="card-text">Pensar em algo mais tarde...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </section>
         <section id="faleconosco">
-            <div class="container d-block fale-conosco">
-                <div class="card">
+            <div class="container d-block">
+                <div class="card border-success">
                     <div class="card-header bg-success">
                       <h5><b class="text-white">Fale Conosco</b></h5>
                     </div>
@@ -152,6 +219,7 @@
              
 </body>
 <script src="js/animacoes.js"></script>
+<script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="logo" x="0px" y="0px" width="365px" height="100px" viewBox="0 0 361 123" enable-background="new 0 0 361 123" xml:space="preserve">  
@@ -2485,6 +2553,17 @@
         0OGFyv8HB3ujAt8EL3gAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjQtMDctMThUMjM6MTU6NTgrMDA6
         MDDuutZRAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI0LTA3LTE4VDIzOjE1OjU4KzAwOjAwn+du7QAA
         AABJRU5ErkJggg==" />
+    </symbol>
+    <symbol id="entrega" viewBox="0 0 16 16">
+      <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+    </symbol>
+    <symbol id="qualidade" viewBox="0 0 16 16">
+      <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zM8.5 4h6l.5.667V5H1v-.333L1.5 4h6V1h1zM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+    </symbol>
+    <symbol id="economia" viewBox="0 0 16 16">
+      <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518z"/>
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+      <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11m0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
     </symbol>
 </svg>
 

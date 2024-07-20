@@ -1,5 +1,9 @@
 @import "../bootstrap/dist/css/bootstrap.min.css";
 
+.nav-mobile{
+    display: none;
+}
+
 #inicio{
     height: 100vh;
     padding: 35vh 0 0 0;
@@ -38,9 +42,23 @@
     }
 }    from { opacity: 1; }
 
+h2{
+    font-size: calc(1.325rem + .9vw);
+}
+
+.bi-fill{
+    width: 50px;
+    height:50px;
+    fill: #198754;
+}
+
+.bi-text{
+    font-size: 1.25rem;
+}
+
 #quemsomos{
     height: 100vh;
-    padding: 35vh 0 0 0;
+    padding: 32vh 0 0 0;
 }
 
 #faleconosco{
@@ -65,4 +83,40 @@
     width: 250px;
     height:50px;
 }
- 
+
+@media (max-width: 767px) {
+
+    #inicio::before {
+        content: "";
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        background: url('../assets/img/marca_d\'agua.png') no-repeat center;
+        background-size: contain; /* Ajuste conforme necessário: cover, contain, etc. */
+        opacity: 0.18; /* Ajuste a opacidade conforme necessário */
+        pointer-events: none; /* Para garantir que a marca d'água não interfira nas interações com o conteúdo */
+    }
+
+    .nav-mobile{
+        display: block;
+    }
+
+    .nav-desk{
+        display: none;
+    }
+
+    h2{
+        font-size: calc(1rem + .4vw);
+    }
+
+    .bi-text{
+        font-size: calc(.7rem + .3vw);
+    }
+
+    #faleconosco{
+        height: 100%; 
+        padding: 28vh 0 0 0;
+    }
+}
