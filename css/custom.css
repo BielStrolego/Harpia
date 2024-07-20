@@ -114,4 +114,8 @@ h2{
     .bi-text{
         font-size: calc(.7rem + .3vw);
     }
+
+    .mensagem-para{
+        display:none;
+    }
 }
