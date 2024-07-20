@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   criarObserver('faleconosco', observarFaleConosco);
 });
 
-const texts = ["Rapidez nas Entregas!", "Produtos de Qualidade!", "E Economia para Você!", "Funcionamos em Horário Comercial.", "Entre em pela aba Fale Conosco", "Ou Ligue: (21) 3833-8188"];
+const texts = ["Rapidez nas Entregas!", "Produtos de Qualidade!", "Economia para Você!", "Funcionamos em Horário Comercial.", "Entre em pela aba Fale Conosco", "Ou Ligue: (21) 3833-8188"];
 let count = 0;
 let index = 0;
 let currentText = '';
