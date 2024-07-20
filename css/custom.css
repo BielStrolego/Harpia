@@ -5,6 +5,19 @@
     padding: 35vh 0 0 0;
 }
 
+#inicio::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background: url('../assets/img/marca_d\'agua.png') no-repeat center;
+    background-size: contain; /* Ajuste conforme necessário: cover, contain, etc. */
+    opacity: 0.18; /* Ajuste a opacidade conforme necessário */
+    pointer-events: none; /* Para garantir que a marca d'água não interfira nas interações com o conteúdo */
+}
+
 .typewriter {
     font-size: 2em;
     border-left: .15em solid #198754;
@@ -30,12 +43,26 @@
     padding: 35vh 0 0 0;
 }
 
-#contatos{
-    height: 100vh; 
-    padding: 20vh 0 0 0;
+#faleconosco{
+    height: 100%; 
+    padding: 14vh 0 0 0;
+}
+
+.form-control:focus{
+    border-color: #198754;
+}
+
+.form-select:focus{
+    border-color: #198754;
 }
 
 .footer{
-    margin-top: 10vh;
-    height: 11vh;
+    margin: 1vh 0 0 0;
+    height: 20vh;
 }
+
+.logo-footer{
+    width: 250px;
+    height:50px;
+}
+ 

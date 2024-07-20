@@ -14,13 +14,13 @@ function quemSomosID() {
   jumpToId('quemsomos');
 }
 
-function contatosID() {
-  jumpToId('contatos');
+function faleConoscoID() {
+  jumpToId('faleconosco');
 }
 
 // Funções para atualizar as classes dos botões
 function atualizarClasses(botaoAtivo) {
-  const botoes = ['Inicio', 'QuemSomos', 'Contatos'];
+  const botoes = ['Inicio', 'QuemSomos', 'FaleConosco'];
   
   botoes.forEach(botao => {
     const elemento = document.getElementById(`btnMenu${botao}`);
@@ -42,8 +42,8 @@ function irParaQuemSomos() {
   quemSomosID();
 }
 
-function irParaContatos() {
-    contatosID();
+function irParaFaleConosco() {
+    faleConoscoID();
 }
 
 
@@ -60,7 +60,7 @@ function criarObserver(elementId, callback) {
         }
       });
     }, {
-      threshold: 0.4 // Ajuste este valor conforme necessário
+      threshold: 0.6 // Ajuste este valor conforme necessário
     });
       
     observer.observe(elemento);
@@ -77,14 +77,14 @@ function observarQuemSomos() {
   atualizarClasses('QuemSomos');
 }
 
-function observarContatos() {
-  atualizarClasses('Contatos');
+function observarFaleConosco() {
+  atualizarClasses('FaleConosco');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   criarObserver('inicio',observarInicio);
   criarObserver('quemsomos', observarQuemSomos);
-  criarObserver('contatos', observarContatos);
+  criarObserver('faleconosco', observarFaleConosco);
 });
 
 const texts = ["Qualidade e Rapidez nas entregas!", "Funcionamos em Horário Comercial.", "Entre em Contato pelo nosso Telefone ou E-mail."];
