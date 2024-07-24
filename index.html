@@ -123,29 +123,29 @@
                     </div>
                     <div class="card-body">
                       <blockquote class="blockquote mb-0 px-0">
-                        <form action="">
+                        <form action="https://formsubmit.co/gsq.25@hotmail.com" method="POST">
                             <div class="row g-2">
                                 <div class="col-md">
                                     <div class="form-floating pt-1">
-                                        <input type="text" class="form-control focus-ring focus-ring-success" id="floatingInputValue" placeholder="Digite seu nome">
+                                        <input type="text" class="form-control focus-ring focus-ring-success" name="nome" id="nome" placeholder="Digite seu nome" required>
                                         <label for="floatingInputValue">Nome:</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                   <div class="form-floating pt-1">
-                                    <input type="text" class="form-control focus-ring focus-ring-success" id="floatingInputValue" placeholder="Informe sua empresa">
+                                    <input type="text" class="form-control focus-ring focus-ring-success" name="empresa" id="empresa" placeholder="Informe sua empresa" required>
                                     <label for="floatingInputValue">Empresa:</label>
                                   </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating pt-1">
-                                        <input type="text" class="form-control focus-ring focus-ring-success" id="floatingInputValue" placeholder="Informe seu CPF">
+                                        <input type="text" class="form-control focus-ring focus-ring-success" name="cpf" id="cpf" placeholder="Informe seu CPF" required>
                                         <label for="floatingInputValue">CPF:</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                   <div class="form-floating pt-1">
-                                    <input type="text" class="form-control focus-ring focus-ring-success" id="floatingInputValue" placeholder="Informe sua empresa">
+                                    <input type="text" class="form-control focus-ring focus-ring-success" name="celular" id="celular" placeholder="Informe seu numero de celular" required>
                                     <label for="floatingInputValue">Celular:</label>
                                   </div>
                                 </div>
@@ -153,18 +153,18 @@
                               <div class="row g-2 mensagem">
                                 <div class="col-md mensagem-para">
                                     <div class="form-floating pt-1">
-                                        <input type="email" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="harpiadobrasil@gmail.com" value="harpiadobrasil@gmail.com">
+                                        <input type="email" readonly class="form-control-plaintext" placeholder="harpiadobrasil@gmail.com" value="harpiadobrasil@gmail.com">
                                         <label for="floatingPlaintextInput">Mensagem para:</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                   <div class="form-floating pt-1">
-                                    <select class="form-select focus-ring focus-ring-success" id="floatingSelectGrid">
-                                      <option class="d-none">Selecione o Assunto:</option>
-                                      <option value="1">Pedido</option>
-                                      <option value="2">Informação</option>
-                                      <option value="3">Consultar preço</option>
-                                      <option value="4">Avaliação</option>
+                                    <select class="form-select focus-ring focus-ring-success" name="assunto" id="assunto" required>
+                                      <option class="d-none" value="">Selecione o Assunto:</option>
+                                      <option value="Solicitação de Pedido">Solicitar Pedido</option>
+                                      <option value="Informação">Informação</option>
+                                      <option value="Consulta de Preço">Consultar preço</option>
+                                      <option value="Avaliação">Avaliação</option>
                                     </select>
                                     <label for="floatingSelectGrid">Assunto</label>
                                   </div>
@@ -172,7 +172,7 @@
                               </div>
                               <div class="mt-1">
                                 <div class="form-floating pt-1">
-                                    <textarea class="form-control focus-ring focus-ring-success" placeholder="Leave a comment here" id="floatingTextarea" maxlength="1000" style="height: 16vh" contenteditable="1000"></textarea>
+                                    <textarea class="form-control focus-ring focus-ring-success" placeholder="Leave a comment here" name="mensagem" id="mensagem" maxlength="1000" style="height: 16vh" contenteditable="1000" required></textarea>
                                     <label for="floatingTextarea">Mensagem:</label>
                                   </div>
                               </div>
@@ -180,6 +180,12 @@
                                 <button type="reset" class="btn btn-outline-danger"> Limpar</button>
                                 <button type="submit" class="btn btn-outline-success"> Enviar</button>
                               </div>
+
+                              <input type="hidden" name="_template" value="table">
+                              <input type="hidden" name="_captcha" value="false">
+                              <input type="hidden" name="_next" value="https://bielstrolego.github.io/Harpia/">
+                              <input type="hidden" name="_subject" value="Novo Contato">
+                              <input type="text" name="_honey" style="display:none">
                         </form>
 
                           
@@ -220,6 +226,8 @@
 </body>
 <script src="js/animacoes.js"></script>
 <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="logo" x="0px" y="0px" width="365px" height="100px" viewBox="0 0 361 123" enable-background="new 0 0 361 123" xml:space="preserve">  
