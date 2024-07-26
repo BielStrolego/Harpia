@@ -56,6 +56,10 @@ h2{
     font-size: 1.25rem;
 }
 
+.link-inicio-fale-conosco{
+    display: none;
+}
+
 #quemsomos{
     height: 100vh;
     padding: 32vh 0 0 0;
@@ -63,7 +67,7 @@ h2{
 
 #faleconosco{
     height: 100%; 
-    padding: 20vh 0 0 0;
+    padding: 19vh 0 0 0;
 }
 
 .form-control:focus{
@@ -89,7 +93,7 @@ h2{
     #inicio::before {
         content: "";
         position: absolute;
-        top: 10%;
+        top: -2%;
         left: 10%;
         width: 80%;
         height: 80%;
@@ -107,12 +111,24 @@ h2{
         display: none;
     }
 
+    #inicio{
+        padding: 30vh 0 0 0;
+    }
+
+    .link-inicio-fale-conosco{
+        display:block;
+    }
+
     h2{
         font-size: calc(1rem + .4vw);
     }
 
     .bi-text{
         font-size: calc(.7rem + .3vw);
+    }
+
+    #quemsomos{
+        padding: 19vh 0 0 0;
     }
 
     .mensagem{

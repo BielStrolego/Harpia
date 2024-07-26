@@ -95,6 +95,10 @@
                   </div>
                 </div>
             </div>
+
+            <div class="text-center mt-5 link-inicio-fale-conosco">
+              <a type="button" class="btn rounded-2 my-2 text-success"  onclick="irParaFaleConosco()"><b>Ir para Fale Conosco</b><br><b>▼</b></a>
+            </div>
             
         </section>
         <section id="quemsomos">
@@ -107,7 +111,7 @@
                 <div class="col-md-7">
                   <div class="card-body">
                     <h5 class="card-title text-success">Quem somos</h5>
-                    <p class="card-text">Pensar em algo mais tarde...</p>
+                    <p class="card-text">Na Harpia, nos dedicamos a oferecer produtos de alta tecnologia e inovação, sempre com o objetivo de superar as expectativas dos nossos clientes. <br> Nossa equipe é altamente qualificada e está em constante atualização para garantir um atendimento excepcional e personalizado. Priorizamos a qualidade em cada etapa do processo e somos reconhecidos pela nossa eficiência logística. <br> Comprometidos com a satisfação total dos nossos clientes, asseguramos a entrega pontual e precisa dos produtos solicitados, mantendo sempre um padrão elevado de serviço.                    </p>
                   </div>
                 </div>
               </div>
@@ -123,30 +127,36 @@
                     </div>
                     <div class="card-body">
                       <blockquote class="blockquote mb-0 px-0">
-                        <form action="https://formsubmit.co/gsq.25@hotmail.com" method="POST">
+                        <form action="https://formsubmit.co/gsq.25@hotmail.com" method="POST"  onsubmit="return enviando()">
                             <div class="row g-2">
                                 <div class="col-md">
                                     <div class="form-floating pt-1">
-                                        <input type="text" class="form-control focus-ring focus-ring-success" name="nome" id="nome" placeholder="Digite seu nome" required>
+                                        <input type="text" class="form-control focus-ring focus-ring-success" name="nome" id="nome" placeholder="Digite seu nome" minlength="10" maxlength="80" oninput="removeNumeros(this)" required>
                                         <label for="floatingInputValue">Nome:</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                   <div class="form-floating pt-1">
-                                    <input type="text" class="form-control focus-ring focus-ring-success" name="empresa" id="empresa" placeholder="Informe sua empresa" required>
+                                    <input type="text" class="form-control focus-ring focus-ring-success" name="empresa" id="empresa" placeholder="Informe sua empresa" minlength="2" maxlength="80" required>
                                     <label for="floatingInputValue">Empresa:</label>
                                   </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating pt-1">
-                                        <input type="text" class="form-control focus-ring focus-ring-success" name="cpf" id="cpf" placeholder="Informe seu CPF" required>
+                                        <input type="text" class="form-control focus-ring focus-ring-success" name="cpf" id="cpf" placeholder="Informe seu CPF" oninput="ajustaCPF(this)"minlength="14" maxlength="14" required>
                                         <label for="floatingInputValue">CPF:</label>
+                                    </div>
+                                    <div class="feedback d-none">
+                                      <h6 class="text-danger">Preencha o campo com o seu <b>CPF</b>.</h6>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                   <div class="form-floating pt-1">
-                                    <input type="text" class="form-control focus-ring focus-ring-success" name="celular" id="celular" placeholder="Informe seu numero de celular" required>
+                                    <input type="text" class="form-control focus-ring focus-ring-success" name="celular" id="celular" placeholder="Informe seu numero de celular" oninput="ajustaCel(this)" minlength="15" maxlength="15" required>
                                     <label for="floatingInputValue">Celular:</label>
+                                  </div>
+                                  <div class="feedback d-none">
+                                    <h6 class="text-danger">Preencha o campo com o seu <b>número celular</b>.</h6>
                                   </div>
                                 </div>
                               </div>
@@ -172,13 +182,19 @@
                               </div>
                               <div class="mt-1">
                                 <div class="form-floating pt-1">
-                                    <textarea class="form-control focus-ring focus-ring-success" placeholder="Leave a comment here" name="mensagem" id="mensagem" maxlength="1000" style="height: 16vh" contenteditable="1000" required></textarea>
-                                    <label for="floatingTextarea">Mensagem:</label>
-                                  </div>
+                                  <textarea class="form-control focus-ring focus-ring-success" placeholder="Leave a comment here" name="mensagem" id="mensagem" maxlength="1000" style="height: 16vh"  minlength="20" maxlength="3000"  required></textarea>
+                                  <label for="floatingTextarea">Mensagem:</label>
+                                </div>
                               </div>
                               <div class="text-center mt-2">
-                                <button type="reset" class="btn btn-outline-danger"> Limpar</button>
-                                <button type="submit" class="btn btn-outline-success"> Enviar</button>
+                                <button type="reset" id="btnformlimpar" class="btn btn-outline-danger"> Limpar</button>
+                                <button type="submit" id="btnformenviar" class="btn btn-outline-success">
+                                  <div id="btnformenviarspinner" class="spinner-border spinner-border-sm text-success d-none">
+                                    <span class="visually-hidden">Loading...</span>
+                                  </div>
+                                  <span id="btnformenviarspanenviando" class="d-none">Enviando</span>
+                                  <span id="btnformenviarspanenviar">Enviar</span>
+                                </button>
                               </div>
 
                               <input type="hidden" name="_template" value="table">
@@ -187,8 +203,6 @@
                               <input type="hidden" name="_subject" value="Novo Contato">
                               <input type="text" name="_honey" style="display:none">
                         </form>
-
-                          
 
                       </blockquote>
                     </div>
@@ -222,6 +236,22 @@
 
         </section>
     </main>
+
+    <div class="modal fade" id="conformarEnvio" data-bs-backdrop="static" tabindex="-1" aria-labelledby="conformarEnvioLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content border border-success">
+          <div class="modal-header bg-success">
+            <h1 class="modal-title fs-5 text-white" id="conformarEnvioLabel">Confirmação de envio</h1>
+          </div>
+          <div class="modal-body">
+            <b>Sua mensagem foi enviada com sucesso!</b> <br> <b>Nossa equipe irá retornar uma resposta em breve.</b>
+          </div>
+          <div class="text-end px-4 py-2">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="confirmarEnvio()">Ok, estou no aguardo!</button>
+          </div>
+        </div>
+      </div>
+    </div>
              
 </body>
 <script src="js/animacoes.js"></script>

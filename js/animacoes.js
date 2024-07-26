@@ -110,6 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
   criarObserver('inicio',observarInicio);
   criarObserver('quemsomos', observarQuemSomos);
   criarObserver('faleconosco', observarFaleConosco);
+
+  // Abre o modal
+  if (localStorage.getItem('mensagemEnviada') === 'true') {
+    var myModal = new bootstrap.Modal(document.getElementById('conformarEnvio'), {
+      keyboard: false
+    });
+    myModal.show();
+  }
 });
 
 const texts = ["Funcionamos em Horário Comercial.", "Entre em contato pela aba Fale Conosco", "Ou Ligue para: (21) 3833-8188"];
@@ -156,3 +164,78 @@ function type() {
 
 // Inicia a função de digitação
 type();
+
+function enviando() {
+   ajustaCPF(document.getElementById('cpf'));
+   ajustaCel(document.getElementById('celular'));
+   
+    const cpf = document.getElementById('cpf');
+    const celular = document.getElementById('celular');
+
+    if (cpf.classList.contains('is-invalid') || celular.classList.contains('is-invalid')) {
+      return false; // Impede o envio se CPF ou celular estiver inválido
+    }else{
+      document.getElementById('btnformlimpar').classList.add('disabled');
+      document.getElementById('btnformenviar').classList.add('disabled');
+    
+      document.getElementById('btnformenviarspinner').classList.remove('d-none');
+      document.getElementById('btnformenviarspanenviando').classList.remove('d-none');
+      document.getElementById('btnformenviarspanenviar').classList.add('d-none');
+
+      // Adiciona a mensagem no localStorage
+      localStorage.setItem('mensagemEnviada', 'true');
+      return true; // Permite o envio
+    }
+
+
+}
+
+function confirmarEnvio() {
+  localStorage.removeItem('mensagemEnviada');
+}
+
+//ajuste de campos
+
+function removeLetras(v){
+  // Remove os caracteres não numéricos
+  v.value = v.value.replace(/\D/g,'');
+}
+
+function removeNumeros(v) {
+  // Remove os caracteres numéricos
+  v.value = v.value.replace(/[0-9]/g, '');
+}
+
+function ajustaCPF(v){
+  v.value = v.value.replace(/\D/g,'');
+  //Adiciona pontos no CPF
+  v.value = v.value.replace(/(\d{3})(\d)/,'$1.$2');
+  v.value = v.value.replace(/(\d{3})(\d)/,'$1.$2');
+  v.value = v.value.replace(/(\d{3})(\d)/,'$1-$2');
+
+  const cpf = document.getElementById('cpf');
+    if (cpf.value.length === 14) {
+        cpf.classList.remove('is-invalid');
+        cpf.classList.add('is-valid');
+    } else {
+        cpf.classList.remove('is-valid');
+        cpf.classList.add('is-invalid');
+    }
+}
+
+function ajustaCel(v){
+  v.value = v.value.replace(/\D/g,'');
+  //Adiciona parênteses no DDD
+  v.value = v.value.replace(/^(\d\d)(\d)/g,'($1) $2');
+  //Adiciona hifen no número do telefone
+  v.value = v.value.replace(/(\d{5})(\d)/,'$1-$2');
+
+  const celular = document.getElementById('celular');
+  if (celular.value.length === 15) {
+      celular.classList.remove('is-invalid');
+      celular.classList.add('is-valid');
+  } else {
+      celular.classList.remove('is-valid');
+      celular.classList.add('is-invalid');
+  }
+}
